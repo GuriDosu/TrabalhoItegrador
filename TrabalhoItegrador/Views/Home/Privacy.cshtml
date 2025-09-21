@@ -1,0 +1,41 @@
+﻿@model TrabalhoItegrador.Models.Reclamacao
+
+@{
+    ViewData["Title"] = "Formulário de Reclamação";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Formulário de Reclamação</h2>
+
+    <form asp-controller="Reclamacao" asp-action="SalvarFormulario" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label class="form-label">Título</label>
+            <input asp-for="titulo" class="form-control" placeholder="Digite o título" />
+            <span asp-validation-for="titulo" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Empresa</label>
+            <select asp-for="id_fornecedor" class="form-select">
+                <option value="">Selecione</option>
+                <option value="1">Kabum</option>
+                <option value="2">Pichau</option>
+                <option value="3">Nvidia</option>
+            </select>
+            <span asp-validation-for="id_fornecedor" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Descrição</label>
+            <textarea asp-for="Descricao" class="form-control" rows="4"></textarea>
+            <span asp-validation-for="Descricao" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Enviar Foto</label>
+            <input asp-for="imagem_url" type="file" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</div>
